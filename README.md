@@ -13,5 +13,10 @@ const LoadableApp = Loadable({
   loading: Loading
 });
 
-ReactDOM.render(LoadableApp, document.querySelector("#root"));
+ReactDOM.render(<LoadableApp/>, document.querySelector("#root"));
 ```
+
+
+- ## 2018.9.25 修复`react-loadable`无法使用BUG
+
+- 添加使用 `@babel/plugin-syntax-dynamic-import`
