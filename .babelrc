@@ -1,5 +1,5 @@
 {
-    "presets":  [
+    "presets": [
         [
             "@babel/react",
             {
@@ -11,6 +11,7 @@
         "@babel/plugin-proposal-class-properties",
         "@babel/plugin-transform-classes",
         "@babel/plugin-transform-arrow-functions",
-        "@babel/plugin-transform-template-literals"
+        "@babel/plugin-transform-template-literals",
+        "@babel/plugin-syntax-dynamic-import"
     ]
 }

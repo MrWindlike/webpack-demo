@@ -1,12 +1,20 @@
 var webpack = require('webpack');
 var path = require('path');
 var HappyPack = require('happypack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+var fs = require('fs');
+
+var loading = {
+  ejs: fs.readFileSync(path.resolve(__dirname, 'template/loading.ejs')),
+  css: fs.readFileSync(path.resolve(__dirname, 'template/loading.css')),
+};
 
 module.exports = {
   entry: './main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: 'main.js',
     publicPath: 'dist',
     pathinfo: false, // 不需要输出路径信息
   },
@@ -35,7 +43,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        include: path.resolve(__dirname, 'src'),
+        include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'main.js')],
         exclude: path.resolve(__dirname, 'node_modules'),
         use: 'happypack/loader?id=babel',
       },

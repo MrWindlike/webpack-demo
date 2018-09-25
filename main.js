@@ -7,4 +7,4 @@ const LoadableApp = Loadable({
   loading: Loading,
 });
 
-ReactDOM.render(LoadableApp, document.querySelector('#root'));
+ReactDOM.render(<LoadableApp />, document.querySelector('#root'));

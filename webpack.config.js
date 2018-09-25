@@ -43,7 +43,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        include: path.resolve(__dirname, 'src'),
+        include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'main.js')],
         exclude: path.resolve(__dirname, 'node_modules'),
         use: 'happypack/loader?id=babel',
       },
@@ -55,7 +55,6 @@ module.exports = {
       id: 'babel',
       loaders: ['babel-loader?cacheDirectory'],
     }),
-    // FIXME: 无法自动插入chunks
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'template/index.ejs'),
       loading: loading, // 在React渲染完前添加loading
