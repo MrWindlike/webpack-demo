@@ -3,7 +3,7 @@ import FunctionalComponent from 'Components/FunctionalComponent';
 
 const App = () => (
   <div>
-    <ClassComponent />
+    <ClassComponent title={1} />
     <FunctionalComponent />
   </div>
 );
