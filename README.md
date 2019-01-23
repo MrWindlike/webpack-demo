@@ -1,4 +1,5 @@
 🌟 本项目会持续更新 Webpack 优化配置，欢迎持续关注，每次更新内容会写在 README 里面。
+
 - ## 2018.10.15 使用`babel-plugin-transform-react-remove-prop-types`来移除构建版本的`props`设置
 
 - ## 2018.9.25 修复`react-loadable`无法使用BUG

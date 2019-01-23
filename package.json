@@ -37,8 +37,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --colors --config webpack.dev.js",
-    "build": "webpack --color"
+    "dev": "webpack-dev-server --open --colors --config build/webpack.dev.js",
+    "build": "webpack --color --config build/webpack.prod.js"
   },
   "keywords": [
     "webpack"
