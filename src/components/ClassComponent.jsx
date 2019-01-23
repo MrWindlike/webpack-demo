@@ -1,8 +1,9 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ClassComponent extends Component {
   static propTypes = {
-    title: 
+    title: PropTypes.string,
   }
 
   constructor(props) {
@@ -20,7 +21,12 @@ class ClassComponent extends Component {
   };
 
   render() {
-    return <p onClick={this.onClick}>{this.state.text}</p>;
+    return (
+      <React.Fragment>
+        <h1>{this.props.title}</h1>
+        <p onClick={this.onClick}>{this.state.text}</p>
+      </React.Fragment>
+    );
   }
 }
 

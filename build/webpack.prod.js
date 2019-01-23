@@ -18,7 +18,12 @@ module.exports = mergeOptions(baseConfig, {
   },
   mode: 'production',
   plugins: [
-    new CleanWebpackPlugin(['dist']), // 构建前清空目录
+    new CleanWebpackPlugin(
+      ['dist'],
+      {
+        root: path.resolve(__dirname, '../'),
+      }
+    ), // 构建前清空目录
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../template/index.ejs'),
       loading: loading, // 在React渲染完前添加loading
