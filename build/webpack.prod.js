@@ -5,6 +5,7 @@ var ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 var fs = require('fs');
 var baseConfig = require('./webpack.base');
 var { mergeOptions } = require('./utils');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 var loading = {
   ejs: fs.readFileSync(path.resolve(__dirname, '../template/loading.ejs')),
@@ -32,6 +33,7 @@ module.exports = mergeOptions(baseConfig, {
       // 给script标签加上defer
       defaultAttribute: 'defer',
     }),
+    new BundleAnalyzerPlugin(),
     // new PrerenderSpaPlugin(
     //   // Absolute path to compiled SPA
     //   path.resolve(__dirname, '../dist'),
