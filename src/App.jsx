@@ -1,8 +1,9 @@
 import ClassComponent from 'Components/ClassComponent';
 import FunctionalComponent from 'Components/FunctionalComponent';
+import './App.scss';
 
 const App = () => (
-  <div>
+  <div className="container">
     <ClassComponent title="I'm title." />
     <FunctionalComponent />
   </div>

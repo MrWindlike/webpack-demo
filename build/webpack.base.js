@@ -30,12 +30,26 @@ module.exports = {
         exclude: path.resolve(__dirname, '../node_modules'),
         use: 'happypack/loader?id=babel',
       },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'cache-loader',
+            options: {
+              cacheDirectory: path.resolve('node_modules', '.cache', 'cache-loader-css'),
+            },
+          },
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
     ],
   },
   plugins: [
     new HappyPack({
       id: 'babel',
-      loaders: ['babel-loader?cacheDirectory'],
+      loaders: ['babel-loader?cacheDirectory=true'],
     }),
   ],
 };
