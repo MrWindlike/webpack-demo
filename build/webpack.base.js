@@ -2,8 +2,10 @@ var path = require('path');
 var HappyPack = require('happypack');
 var babelOptions = require('../.babelrc');
 var webpack = require('webpack');
+var SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+var smp = new SpeedMeasurePlugin();
 
-module.exports = {
+module.exports = smp.wrap({
   entry: path.resolve(__dirname, '../main.js'),
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -51,4 +53,4 @@ module.exports = {
       PropTypes: 'prop-types',
     }),
   ],
-};
+});
