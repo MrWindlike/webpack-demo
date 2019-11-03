@@ -6,6 +6,7 @@ var fs = require('fs');
 var baseConfig = require('./webpack.base');
 var { mergeOptions } = require('./utils');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 var loading = {
   ejs: fs.readFileSync(path.resolve(__dirname, '../template/loading.ejs')),
@@ -34,6 +35,7 @@ module.exports = mergeOptions(baseConfig, {
       defaultAttribute: 'defer',
     }),
     new BundleAnalyzerPlugin(),
+    new MiniCssExtractPlugin(),
     // new PrerenderSpaPlugin(
     //   // Absolute path to compiled SPA
     //   path.resolve(__dirname, '../dist'),
@@ -51,12 +53,21 @@ module.exports = mergeOptions(baseConfig, {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
         },
+        react: {
+          minChunks: 1,
+          test: /[\\/]node_modules[\\/](react|redux)/,
+          name: 'react',
+          priority: -20,
+        },
         default: {
           minChunks: 2,
-          priority: -20,
+          priority: -10,
           reuseExistingChunk: true,
         },
       },
+    },
+    runtimeChunk: {
+      name: 'runtime',
     },
   },
 });

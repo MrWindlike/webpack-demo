@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component } from 'react';
 
 class ClassComponent extends Component {
   static propTypes = {
@@ -10,7 +9,7 @@ class ClassComponent extends Component {
     super(props);
 
     this.state = {
-      text: 'Hello React'
+      text: 'Hello React',
     };
   }
 

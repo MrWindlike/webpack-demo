@@ -1,5 +1,4 @@
 import Loading from './src/components/Loading';
-import ReactDOM from 'react-dom';
 import Loadable from 'react-loadable';
 
 const LoadableApp = Loadable({

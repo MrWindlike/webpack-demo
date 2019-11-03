@@ -1,6 +1,7 @@
 var path = require('path');
 var HappyPack = require('happypack');
 var babelOptions = require('../.babelrc');
+var webpack = require('webpack');
 
 module.exports = {
   entry: path.resolve(__dirname, '../main.js'),
@@ -10,14 +11,7 @@ module.exports = {
   resolve: {
     alias: {
       Components: path.resolve(__dirname, '../src/components'),
-      react: path.resolve(
-        __dirname,
-        '../node_modules/react/umd/react.production.min.js'
-      ),
-      'react-dom': path.resolve(
-        __dirname,
-        '../node_modules/react-dom/umd/react-dom.production.min.js'
-      ),
+      Config: path.resolve(__dirname, '../src/config'),
     },
     modules: [path.resolve(__dirname, '../node_modules')],
     extensions: ['.js', '.jsx', '.json'], // 需要解析的文件后缀
@@ -50,6 +44,11 @@ module.exports = {
     new HappyPack({
       id: 'babel',
       loaders: ['babel-loader?cacheDirectory=true'],
+    }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+      ReactDom: 'react-dom',
+      PropTypes: 'prop-types',
     }),
   ],
 };
