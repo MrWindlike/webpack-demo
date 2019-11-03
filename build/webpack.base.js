@@ -3,6 +3,7 @@ var HappyPack = require('happypack');
 var babelOptions = require('../.babelrc');
 var webpack = require('webpack');
 var SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 var smp = new SpeedMeasurePlugin();
 
 module.exports = smp.wrap({
@@ -43,6 +44,7 @@ module.exports = smp.wrap({
     ],
   },
   plugins: [
+    new FriendlyErrorsWebpackPlugin(),
     new HappyPack({
       id: 'babel',
       loaders: ['babel-loader?cacheDirectory=true'],
