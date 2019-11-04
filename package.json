@@ -42,12 +42,13 @@
     "webpack": "^4.17.1",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.0",
+    "webpack-dashboard": "^3.2.0",
     "webpack-dev-server": "^3.1.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --colors --config build/webpack.dev.js",
-    "build": "SET \"BABEL_ENV=production\" && webpack --color --config build/webpack.prod.js"
+    "dev": "webpack-dashboard -- webpack-dev-server --open --colors --config build/webpack.dev.js",
+    "build": "SET \"BABEL_ENV=production\" && webpack-dashboard -- webpack --color --config build/webpack.prod.js"
   },
   "keywords": [
     "webpack"

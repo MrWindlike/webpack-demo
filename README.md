@@ -4,6 +4,7 @@
   * 使用 ProvidePlugin 自动引入一些库
   * 使用 SpeedMeasurePlugin 查看构建速度
   * 使用 FriendlyErrorsWebpackPlugin
+  * 使用 DashboardPlugin
 
 - ## 2019.08.04 使用`cache-loader`来对 loader 的处理结果进行缓存
 
